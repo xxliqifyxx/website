@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | COREFIX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="section">
+    <div class="admin-head">
+      <h1>Tickets</h1>
+      <a class="btn ghost" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <div class="tickets">
+      {% for t in tickets %}
+      <div class="ticket">
+        <h3>#{{ t.id }} - {{ t.name }}</h3>
+        <p><strong>Phone:</strong> {{ t.phone }} | <strong>Email:</strong> {{ t.email }}</p>
+        <p><strong>Device:</strong> {{ t.device }}</p>
+        <p><strong>Service:</strong> {{ t.service_type }}</p>
+        <p><strong>Issue:</strong> {{ t.issue }}</p>
+        <p>{{ t.description }}</p>
+        <p><strong>Status:</strong> {{ t.status }}</p>
+        <form method="post" action="{{ url_for('update_status', ticket_id=t.id) }}">
+          <select name="status">
+            <option>New</option>
+            <option>Contacted</option>
+            <option>Booked</option>
+            <option>In Repair</option>
+            <option>Completed</option>
+          </select>
+          <button class="btn small" type="submit">Update</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

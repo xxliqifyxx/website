@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Repair | COREFIX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="section form-wrap">
+    <h1>Book a Repair</h1>
+    <form method="post" class="form">
+      <input name="name" placeholder="Your name" required>
+      <input name="phone" placeholder="Phone number" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="device" placeholder="Device model" required>
+      <input name="issue" placeholder="Issue type" required>
+      <input name="preferred_time" placeholder="Preferred time">
+      <select name="service_type">
+        <option>Screen Repair</option>
+        <option>Battery Replacement</option>
+        <option>Charging Port</option>
+        <option>Back Glass</option>
+        <option>Camera Repair</option>
+        <option>Water Damage</option>
+        <option>Speaker & Mic</option>
+        <option>Data Recovery</option>
+      </select>
+      <textarea name="description" placeholder="Describe the problem" required></textarea>
+      <button class="btn" type="submit">Create Ticket</button>
+    </form>
+  </main>
+</body>
+</html>
